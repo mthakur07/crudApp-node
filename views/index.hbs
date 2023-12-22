@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                crud
+                <a class="btn btn-primary" href="/create" style="float: right"> Add </a>
+
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Profile</th>
+                            <th>Email</th>
+                            <th>Contact No</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each cruds}}
+                        <tr>                            
+                            <th>{{@index}}</th>
+                            <td>{{this.name}}</td>
+                            <td>{{this.email}}</td>
+                            <td>{{this.contact}}</td>
+                            <td>
+                                <a href="/edit/{{this._id}}" class="btn btn-warning">Edit</a>
+                                <button href="/trash/{{this._id}}" class="btn btn-danger" onclick="document.getElementById('crud-{{this._id}}').submit()">Del</button>
+                                <form action="/trash/{{this._id}}" method="post" id="crud-{{this._id}}"> </form>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
