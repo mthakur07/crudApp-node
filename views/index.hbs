@@ -14,15 +14,14 @@
             <div class="card-header">
                 crud
                 <a class="btn btn-primary" href="/create" style="float: right"> Add </a>
-
             </div>
             <div class="card-body">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th>#</th>
+                        <tr class="table-active">
+                            <th>Sr. No.</th>
                             <th>Name</th>
-                            <th>Profile</th>
+                            <th>image </th>
                             <th>Email</th>
                             <th>Contact No</th>
                             <th>Action</th>
@@ -30,14 +29,17 @@
                     </thead>
                     <tbody>
                         {{#each cruds}}
-                        <tr>                            
+                        <tr>
                             <th>{{@index}}</th>
                             <td>{{this.name}}</td>
+                            <td style="height: 100px; width:100px;"> <img src="{{this.image}}" alt="{{this.image}} ">
+                            </td>
                             <td>{{this.email}}</td>
                             <td>{{this.contact}}</td>
                             <td>
                                 <a href="/edit/{{this._id}}" class="btn btn-warning">Edit</a>
-                                <button href="/trash/{{this._id}}" class="btn btn-danger" onclick="document.getElementById('crud-{{this._id}}').submit()">Del</button>
+                                <button href="/trash/{{this._id}}" class="btn btn-danger"
+                                    onclick="document.getElementById('crud-{{this._id}}').submit()">Del</button>
                                 <form action="/trash/{{this._id}}" method="post" id="crud-{{this._id}}"> </form>
                             </td>
                         </tr>

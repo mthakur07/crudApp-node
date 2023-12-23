@@ -12,28 +12,32 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-               Create <a class="btn btn-primary" href="/" style="float: right"> Back </a>
+                Create <a class="btn btn-primary" href="/" style="float: right"> Back </a>
 
             </div>
             <div class="card-body">
                 <form action="/update/{{data.id}}" method="post">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" value={{data.name}}>                        
+                        <input type="text" class="form-control" id="name" name="name" value={{data.name}}>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Profile Image</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                        <!-- Display image preview -->
+                        <img src="{{data.image}}"
+                            height="50px" width="50px" alt="">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" value={{data.email}} >
+                        <input type="email" class="form-control" id="email" name="email" value={{data.email}}>
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Contact No </label>
-                        <input type="text" class="form-control" id="contact" name="contact" value= {{data.contact}}>                        
+                        <input type="text" class="form-control" id="contact" name="contact" value={{data.contact}}>
                     </div>
-                   
-                    
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
-
             </div>
         </div>
     </div>

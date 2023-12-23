@@ -1,14 +1,19 @@
 // import express 
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
+const bodyParser = require('body-parser');
+
 // import routes
 const frontRoutes = require('./routes/front.routes')
-const bodyParser = require('body-parser');
 // express instance 
 const app = express();
 
 //middlware
 app.use(bodyParser.urlencoded({extended: true}))
+
+// statc files 
+app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 3000 ; 
 
